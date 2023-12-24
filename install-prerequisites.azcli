@@ -1,0 +1,9 @@
+pip install -r requirements.txt
+pip list #show all installed packages
+pip list -r requirements.txt
+
+py -m pip install azure-cli
+py -m pip install numpy
+
+py -m pip install azure-mgmt-subscription
+pip install azure-mgmt

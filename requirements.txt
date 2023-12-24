@@ -1,0 +1,8 @@
+# https://learn.microsoft.com/en-us/azure/developer/python/sdk/azure-sdk-library-package-index
+
+azure-mgmt-resource>=18.0.0
+azure-identity>=1.5.0
+azure-mgmt-subscription>=3.1.1
+azure-search-documents>=11.3.0
+azure-mgmt-costmanagement>=4.0.1
+azure-mgmt-storage
