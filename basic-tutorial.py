@@ -7,7 +7,7 @@ import numpy as np
 for key, value in os.environ.items():
     print(f"{key}: {value}")
 print(os.environ["AZURE_OPENAI_ENDPOINT"])
-os.environ['AZURE_SUBSCRIPTION_ID'] = ""
+#os.environ['AZURE_SUBSCRIPTION_ID'] = ""
 print(os.environ["AZURE_SUBSCRIPTION_ID"])
 
 

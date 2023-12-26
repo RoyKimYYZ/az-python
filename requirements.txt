@@ -6,3 +6,5 @@ azure-mgmt-subscription>=3.1.1
 azure-search-documents>=11.3.0
 azure-mgmt-costmanagement>=4.0.1
 azure-mgmt-storage
+azure-storage-blob
+
