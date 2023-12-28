@@ -15,6 +15,7 @@ credential = AzureCliCredential()
 
 
 # Retrieve subscription id as an environment variable. Ensure to set it up before hand.
+os.environ['AZURE_SUBSCRIPTION_ID'] = "ed4bb153-37db-4f9e-99b0-dc0f00cd8be3"
 subscription_id = os.environ['AZURE_SUBSCRIPTION_ID']
 print(subscription_id)
 # print(os.environ.get('AZURE_SUBSCRIPTION_ID'))
