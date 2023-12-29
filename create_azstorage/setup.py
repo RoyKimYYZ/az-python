@@ -1,9 +1,9 @@
 from setuptools import setup
 
 setup(
-    name='createazstorage',
+    name='create_azstorage',
     version='0.1.0',
-    py_modules=['create-storage-cli'],
+    py_modules=['create_azstorage_cli'],
     install_requires=[
         'Click',
         'azure-mgmt-resource',
@@ -13,7 +13,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'create-storage-cli = create-storage-cli:create_az_storage',
+            'create_azstorage_cli = create_azstorage_cli:create_az_storage',
         ],
     },
 )

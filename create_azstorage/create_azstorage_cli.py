@@ -8,10 +8,10 @@ import os, random
 import click
 
 @click.command()
-@click.option("--resourceGroupName")
-@click.option("--fileName")
-@click.option("--subscriptionId")
-def create_az_storage(resourceGroupName, fileName, subscriptionId):
+@click.option("--resourcegroupname")
+@click.option("--filename")
+@click.option("--subscriptionid")
+def create_az_storage(resourcegroupname, filename, subscriptionid):
 
     # Acquire a credential object using CLI-based authentication.
     # Checks if the Azure CLI is logged in. 
@@ -22,7 +22,7 @@ def create_az_storage(resourceGroupName, fileName, subscriptionId):
 
 
     # Retrieve subscription id as an environment variable. Ensure to set it up before hand.
-    os.environ['AZURE_SUBSCRIPTION_ID'] = subscriptionId
+    os.environ['AZURE_SUBSCRIPTION_ID'] = subscriptionid
     subscription_id = os.environ['AZURE_SUBSCRIPTION_ID']
     print(subscription_id)
     # print(os.environ.get('AZURE_SUBSCRIPTION_ID'))
@@ -32,7 +32,7 @@ def create_az_storage(resourceGroupName, fileName, subscriptionId):
     # Obtain the management object for resources.
     resource_client = ResourceManagementClient(credential, subscription_id)
 
-    RESOURCE_GROUP_NAME = resourceGroupName
+    RESOURCE_GROUP_NAME = resourcegroupname
     LOCATION = "eastus"
 
     rg_result = resource_client.resource_groups.create_or_update(RESOURCE_GROUP_NAME,
@@ -89,8 +89,8 @@ def create_az_storage(resourceGroupName, fileName, subscriptionId):
     # special values there, so we just pass empty JSON.
     print(f"Provisioned blob container {container.name}")
 
-    blob_name = fileName
-    local_file_path = fileName
+    blob_name = filename
+    local_file_path = filename
     # Create a BlobServiceClient using the storage blob client library
     blob_service_client = BlobServiceClient.from_connection_string(conn_string)
     container_client = blob_service_client.get_container_client(CONTAINER_NAME)
