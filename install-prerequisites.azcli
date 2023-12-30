@@ -11,10 +11,14 @@ pip install azure-mgmt
 .venv\scripts\activate
 
 
+python create_azstorage_cli.py --resourcegroupname demoGroup --filename sample-file-blob.txt --subscriptionid 
+
+
 # setup tools
 pip install -e .
 
-create_azstorage_cli.exe --resourcegroupname demoGroup --filename sample-file-blob.txt --subscriptionid 
+.\create_azstorage_cli.exe --resourcegroupname demoGroup --filename sample-file-blob.txt --subscriptionid 
+
 
 
 
