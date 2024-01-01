@@ -42,8 +42,10 @@ jobs:
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
+        pip install -r requirements.txt
         pip install twine
-
+        pip install -e .\create_azstorage\
+        
     - name: Publish Package
       run: |
         python -m twine upload dist/*
