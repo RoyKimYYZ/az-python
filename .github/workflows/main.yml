@@ -24,7 +24,7 @@ jobs:
         pip install -r requirements.txt
         pip install setuptools
     - name: Build Package
-      run: pip install -e .\create_azstorage\
+      run: pip install -e ./create_azstorage
 
   publish:
     needs: build
