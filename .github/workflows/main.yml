@@ -1,9 +1,9 @@
 name: Build and Publish Package
 
 on:
-  push:
-    branches:
-      - main  # Change this to your main branch
+  #push:
+  #  branches:
+  #    - main  # Change this to your main branch
   workflow_dispatch:
     inputs:
       resourceGroupName:
