@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main  # Change this to your main branch
+  workflow_dispatch:
+    inputs:
+      resourceGroupName:
+        description: 'azure resource group name'
+        required: true
 
 jobs:
   build:
