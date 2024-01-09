@@ -1,5 +1,4 @@
-name: Build and Publish Package
-
+name: Build and Run
 on:
   #push:
   #  branches:
@@ -9,6 +8,15 @@ on:
       resourceGroupName:
         description: 'azure resource group name'
         required: true
+      region:
+        description: 'azure region'
+        required: true
+      subscriptionId:
+        description: 'azure subscription id'
+        required: true
+      storageAccountName:
+        description: 'storage account name'
+        required: false
 
 jobs:
   build:
@@ -28,7 +36,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install setuptools
-    - name: Build Package
+    - name: Build Python Package
       run: pip install -e ./create_azstorage
 
 
