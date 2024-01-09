@@ -16,7 +16,7 @@ on:
       subscriptionId:
         description: 'azure subscription id'
         required: true
-        
+        default: ${{ vars.SUBSCRIPTION_ID }} 
       storageAccountName:
         description: 'storage account name'
         required: false
@@ -41,7 +41,7 @@ jobs:
         pip install setuptools
 
     - name: Build Python Package
-      run: pip install -editable ./create_azstorage
+      run: pip install --editable ./create_azstorage
 
     - name: Output Input Variables
       run: |
@@ -53,14 +53,11 @@ jobs:
     - name: List Files
       run: tree
 
-    - name: Build Python Package
+    - name: Run CLI
       run: |
         create_azstorage \
           --resource-group-name ${{ github.event.inputs.resourceGroupName }} \
           --region ${{ github.event.inputs.region }} \
           --subscription-id ${{ github.event.inputs.subscriptionId }} \
           --storage-account-name ${{ github.event.inputs.storageAccountName }}
-
-          - name: List Files
-            run: ls
 
