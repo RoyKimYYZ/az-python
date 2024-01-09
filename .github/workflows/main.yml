@@ -8,12 +8,15 @@ on:
       resourceGroupName:
         description: 'azure resource group name'
         required: true
+        default: 'demoGroup'
       region:
         description: 'azure region'
         required: true
+        default: 'east us'
       subscriptionId:
         description: 'azure subscription id'
         required: true
+        
       storageAccountName:
         description: 'storage account name'
         required: false
@@ -38,7 +41,7 @@ jobs:
         pip install setuptools
 
     - name: Build Python Package
-      run: pip install -e ./create_azstorage
+      run: pip install -editable ./create_azstorage
 
     - name: Output Input Variables
       run: |
@@ -46,13 +49,18 @@ jobs:
         echo "region: ${{ github.event.inputs.region }}"
         echo "subscriptionId: ${{ github.event.inputs.subscriptionId }}"
         echo "storageAccountName: ${{ github.event.inputs.storageAccountName }}"
+    
+    - name: List Files
+      run: tree
 
     - name: Build Python Package
       run: |
-        ./create_azstorage.exe \
+        create_azstorage \
           --resource-group-name ${{ github.event.inputs.resourceGroupName }} \
           --region ${{ github.event.inputs.region }} \
           --subscription-id ${{ github.event.inputs.subscriptionId }} \
           --storage-account-name ${{ github.event.inputs.storageAccountName }}
 
+          - name: List Files
+            run: ls
 
