@@ -50,7 +50,7 @@ jobs:
         echo "storageAccountName: ${{ github.event.inputs.storageAccountName }}"
     
     - name: List Files
-      run: tree ~/
+      run: tree
 
     - name: List Files
       run: |
@@ -59,9 +59,7 @@ jobs:
 
     - name: Run CLI
       run: |
-        create_azstorage \
-          --resource-group-name ${{ github.event.inputs.resourceGroupName }} \
-          --region ${{ github.event.inputs.region }} \
-          --subscription-id ${{ github.event.inputs.subscriptionId }} \
-          --storage-account-name ${{ github.event.inputs.storageAccountName }}
+        ./create_azstorage 
+        
+      
 
