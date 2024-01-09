@@ -36,7 +36,23 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install setuptools
+
     - name: Build Python Package
       run: pip install -e ./create_azstorage
+
+    - name: Output Input Variables
+      run: |
+        echo "resourceGroupName: ${{ github.event.inputs.resourceGroupName }}"
+        echo "region: ${{ github.event.inputs.region }}"
+        echo "subscriptionId: ${{ github.event.inputs.subscriptionId }}"
+        echo "storageAccountName: ${{ github.event.inputs.storageAccountName }}"
+
+    - name: Build Python Package
+      run: |
+        ./create_azstorage.exe \
+          --resource-group-name ${{ github.event.inputs.resourceGroupName }} \
+          --region ${{ github.event.inputs.region }} \
+          --subscription-id ${{ github.event.inputs.subscriptionId }} \
+          --storage-account-name ${{ github.event.inputs.storageAccountName }}
 
 
