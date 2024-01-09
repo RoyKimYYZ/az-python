@@ -54,12 +54,12 @@ jobs:
 
     - name: List Files
       run: |
-        which create_azstorage
+        which create_azstorage_cli
 
 
     - name: Run CLI
       run: |
-        ./create_azstorage 
+        create_azstorage_cli
         
       
 
