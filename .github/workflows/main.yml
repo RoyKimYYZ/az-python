@@ -50,7 +50,7 @@ jobs:
         echo "storageAccountName: ${{ github.event.inputs.storageAccountName }}"
     
     - name: List Files
-      run: tree
+      run: ../tree
 
     - name: List Files
       run: |
