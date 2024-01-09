@@ -16,7 +16,6 @@ on:
       subscriptionId:
         description: 'azure subscription id'
         required: true
-        default: ${{ vars.SUBSCRIPTION_ID }} 
       storageAccountName:
         description: 'storage account name'
         required: false
