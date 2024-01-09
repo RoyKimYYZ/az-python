@@ -52,6 +52,13 @@ jobs:
     - name: List Files
       run: tree
 
+    - name: List Files
+      run: |
+        which create_azstorage
+        ls -l create_azstorage
+        ls bin
+
+
     - name: Run CLI
       run: |
         create_azstorage \
