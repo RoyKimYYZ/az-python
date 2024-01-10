@@ -64,7 +64,6 @@ jobs:
       run: |
         create_azstorage_cli \
           --resourcegroupname ${{ github.event.inputs.resourceGroupName }} \
-          #--region ${{ github.event.inputs.region }} \
           --subscriptionid ${{ github.event.inputs.subscriptionId }} \
           --filename ${{ github.event.inputs.filename }} \
           --storageaccountname ${{ github.event.inputs.storageAccountName }}
