@@ -66,7 +66,7 @@ jobs:
           --resourcegroupname ${{ github.event.inputs.resourceGroupName }} \
           --subscriptionid ${{ github.event.inputs.subscriptionId }} \
           --filename ${{ github.event.inputs.filename }} \
-          --storageaccountname ${{ github.event.inputs.storageAccountName }}
+          #--storageaccountname ${{ github.event.inputs.storageAccountName }}
         
       
 
