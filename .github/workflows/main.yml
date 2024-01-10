@@ -16,6 +16,10 @@ on:
       subscriptionId:
         description: 'azure subscription id'
         required: true
+      filename:
+        description: 'file name to upload to blob container'
+        required: false
+        default: 'sample-file-blob.txt'
       storageAccountName:
         description: 'storage account name'
         required: false
@@ -59,10 +63,11 @@ jobs:
     - name: Run python command
       run: |
         create_azstorage_cli \
-          --resource-group-name ${{ github.event.inputs.resourceGroupName }} \
-          --region ${{ github.event.inputs.region }} \
-          --subscription-id ${{ github.event.inputs.subscriptionId }} \
-          --storage-account-name ${{ github.event.inputs.storageAccountName }}
+          --resourcegroupname ${{ github.event.inputs.resourceGroupName }} \
+          #--region ${{ github.event.inputs.region }} \
+          --subscriptionid ${{ github.event.inputs.subscriptionId }} \
+          --filename ${{ github.event.inputs.filename }} \
+          --storageaccountname ${{ github.event.inputs.storageAccountName }}
         
       
 
