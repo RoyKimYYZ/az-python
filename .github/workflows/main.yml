@@ -55,11 +55,14 @@ jobs:
     - name: List Files
       run: |
         which create_azstorage_cli
-
-
-    - name: Run CLI
+        
+    - name: Run python command
       run: |
-        create_azstorage_cli
+        create_azstorage_cli \
+          --resource-group-name ${{ github.event.inputs.resourceGroupName }} \
+          --region ${{ github.event.inputs.region }} \
+          --subscription-id ${{ github.event.inputs.subscriptionId }} \
+          --storage-account-name ${{ github.event.inputs.storageAccountName }}
         
       
 
