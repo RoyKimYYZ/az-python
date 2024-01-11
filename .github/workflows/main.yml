@@ -32,6 +32,12 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v3
 
+    - name: 'Log into Azure using github secret GITHUBACTION_SPN'
+        uses: Azure/login@v1
+        with:
+          creds: ${{ secrets.GITHUBACTION_SPN }}
+          enable-AzPSSession: true
+          
     - name: Set up Python
       uses: actions/setup-python@v3
       with:
