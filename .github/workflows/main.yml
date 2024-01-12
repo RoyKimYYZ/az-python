@@ -20,9 +20,6 @@ on:
         description: 'file name to upload to blob container'
         required: false
         default: 'sample-file-blob.txt'
-      storageAccountName:
-        description: 'storage account name'
-        required: false
 
 jobs:
   build:
@@ -57,7 +54,7 @@ jobs:
         echo "resourceGroupName: ${{ github.event.inputs.resourceGroupName }}"
         echo "region: ${{ github.event.inputs.region }}"
         echo "subscriptionId: ${{ github.event.inputs.subscriptionId }}"
-        echo "storageAccountName: ${{ github.event.inputs.storageAccountName }}"
+        echo "askcleanup: ${{ github.event.inputs.askcleanup }}"
     
     - name: List Files
       run: tree
@@ -71,8 +68,7 @@ jobs:
         create_azstorage_cli \
           --resourcegroupname ${{ github.event.inputs.resourceGroupName }} \
           --subscriptionid ${{ github.event.inputs.subscriptionId }} \
-          --filename ${{ github.event.inputs.filename }} \
-          #--storageaccountname ${{ github.event.inputs.storageAccountName }}
+          --filename ${{ github.event.inputs.filename }} 
         
       
 
