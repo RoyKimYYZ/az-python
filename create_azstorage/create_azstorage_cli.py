@@ -11,7 +11,8 @@ import click
 @click.option("--resourcegroupname")
 @click.option("--filename")
 @click.option("--subscriptionid")
-def create_az_storage(resourcegroupname, filename, subscriptionid):
+@click.option("--askcleanup", default=True, is_flag=True)
+def create_az_storage(resourcegroupname, filename, subscriptionid, askcleanup):
 
     # Acquire a credential object using CLI-based authentication.
     # Checks if the Azure CLI is logged in. 
@@ -102,11 +103,10 @@ def create_az_storage(resourcegroupname, filename, subscriptionid):
     print(f"File '{local_file_path}' uploaded to the blob container '{CONTAINER_NAME}' as '{blob_name}'.")
 
     # The option to clean up and delete storage account resources
-    user_input = input("Delete storage account y/n? ")
-    if ( user_input == "y" ):
-        storage_client.storage_accounts.delete(RESOURCE_GROUP_NAME, STORAGE_ACCOUNT_NAME)
-
-
+    if ( askcleanup == True ):
+        user_input = input("Delete resource group y/n? ")
+        if ( user_input == "y" ):
+            resource_client.resource_groups.begin_delete(RESOURCE_GROUP_NAME)
 
 if __name__ == "__main__":
     create_az_storage()

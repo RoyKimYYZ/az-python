@@ -19,7 +19,9 @@ pip install -e .
 
 .\create_azstorage_cli.exe --resourcegroupname demoGroup --filename sample-file-blob.txt --subscriptionid 
 
+# create azure service principal name for github action workflow to use
 
+az ad sp create-for-rbac --name githubaction_spn --role contributor --scopes /subscriptions/<subid>/resourceGroups/demoGroup
 
 
 
