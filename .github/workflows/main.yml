@@ -20,10 +20,6 @@ on:
         description: 'file name to upload to blob container'
         required: false
         default: 'sample-file-blob.txt'
-      askcleanup:
-        description: 'disable prompting for user input to delete'
-        default: false
-        required: false
 
 jobs:
   build:
@@ -72,8 +68,7 @@ jobs:
         create_azstorage_cli \
           --resourcegroupname ${{ github.event.inputs.resourceGroupName }} \
           --subscriptionid ${{ github.event.inputs.subscriptionId }} \
-          --filename ${{ github.event.inputs.filename }} \
-          --askcleanup ${{ github.event.inputs.askcleanup }}
+          --filename ${{ github.event.inputs.filename }} 
         
       
 
