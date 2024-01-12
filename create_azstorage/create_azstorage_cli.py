@@ -11,7 +11,7 @@ import click
 @click.option("--resourcegroupname")
 @click.option("--filename")
 @click.option("--subscriptionid")
-@click.option("--askcleanup", default=True, is_flag=True)
+@click.option("--askcleanup", default=False, is_flag=True)
 def create_az_storage(resourcegroupname, filename, subscriptionid, askcleanup):
 
     # Acquire a credential object using CLI-based authentication.
