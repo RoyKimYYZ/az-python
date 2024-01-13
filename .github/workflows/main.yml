@@ -52,14 +52,13 @@ jobs:
     - name: Output Input Variables
       run: |
         echo "resourceGroupName: ${{ github.event.inputs.resourceGroupName }}"
-        echo "region: ${{ github.event.inputs.region }}"
         echo "subscriptionId: ${{ github.event.inputs.subscriptionId }}"
-        echo "askcleanup: ${{ github.event.inputs.askcleanup }}"
+        echo "filename: ${{ github.event.inputs.filename }}"
     
-    - name: List Files
+    - name: List Files for debugging
       run: tree
 
-    - name: List Files
+    - name: Locate my command tool file location for debugging
       run: |
         which create_azstorage_cli
         
