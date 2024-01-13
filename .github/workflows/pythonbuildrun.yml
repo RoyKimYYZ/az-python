@@ -1,8 +1,5 @@
 name: Build and Run
 on:
-  #push:
-  #  branches:
-  #    - main  # Change this to your main branch
   workflow_dispatch:
     inputs:
       resourceGroupName:
