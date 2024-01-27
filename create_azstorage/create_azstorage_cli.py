@@ -8,7 +8,7 @@ import os, random
 import click
 
 @click.command()
-@click.option("--resourcegroupname")
+@click.option("--resourcegroupname", default="demoGroup", help="Resource Group Name")
 @click.option("--filename")
 @click.option("--subscriptionid")
 @click.option("--askcleanup", default=False, is_flag=True)
