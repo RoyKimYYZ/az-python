@@ -8,8 +8,15 @@ https://learn.microsoft.com/en-us/azure/developer/python/sdk/examples/azure-sdk-
 https://azure.github.io/azure-sdk-for-python/
 
 
-## GitHub Actions Workflow Logic
 
+
+## Uinsg GitHub Actions Workflow
+
+## Prerequisites
+1. create or use existing Azure Entra (fromerly Azure AD) service principal name (spn) that has contributor role on the subscription or existing resource group to deploy into.
+2. store SPN credentials (client id and client secret) as a GitHub repository secret
+
+### Workflow Logic:
 1. Manual user trigger with user input.
 2. A workflow job that runs on ubuntu
 3. Checkout the repository
