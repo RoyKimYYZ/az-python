@@ -8,7 +8,7 @@ https://learn.microsoft.com/en-us/azure/developer/python/sdk/examples/azure-sdk-
 https://azure.github.io/azure-sdk-for-python/
 
 
-# GitHub Actions Workflow Logic
+## GitHub Actions Workflow Logic
 
 1. Manual user trigger with user input.
 2. A workflow job that runs on ubuntu
