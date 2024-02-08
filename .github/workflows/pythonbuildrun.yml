@@ -1,6 +1,6 @@
 name: Build and Run
-on:
-  workflow_dispatch:
+on: # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
     inputs:
       resourceGroupName:
         description: 'azure resource group name'
@@ -18,46 +18,46 @@ on:
         required: false
         default: 'sample-file-blob.txt'
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+jobs: # This workflow contains a single job called "build"
+  build: # The job name
+    runs-on: ubuntu-latest # This job will run on Ubuntu  
 
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v3
+    steps: # The job contains steps that define tasks to perform in the job
+    - name: Checkout Repository # This step checks out a copy of your repository
+      uses: actions/checkout@v3 # This is the action you are using
 
     - name: 'Log into Azure using github secret GITHUBACTION_SPN'
-      uses: Azure/login@v1.5.1
+      uses: Azure/login@v1.5.1 
       with:
-        creds: ${{ secrets.GITHUBACTION_SPN }}
-        enable-AzPSSession: true
+        creds: ${{ secrets.GITHUBACTION_SPN }} # This references the secret you created earlier
+        enable-AzPSSession: true # This enables the Az Powershell session
           
     - name: Set up Python
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v3 # This sets up a Python environment
       with:
-        python-version: 3.11.4  # Change this to your desired Python version
+        python-version: 3.11.4  # This sets the version of Python to use
 
-    - name: Install Dependencies
+    - name: Install Dependencies # This installs dependencies using pip
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install setuptools
 
     - name: Build Python Package
-      run: pip install --editable ./create_azstorage
+      run: pip install --editable ./create_azstorage # This installs the package
 
-    - name: Output Input Variables
+    - name: Output Input Variables # This outputs the input variables for debugging
       run: |
-        echo "resourceGroupName: ${{ github.event.inputs.resourceGroupName }}"
+        echo "resourceGroupName: ${{ github.event.inputs.resourceGroupName }}" # This outputs the input variables for debugging
         echo "subscriptionId: ${{ github.event.inputs.subscriptionId }}"
         echo "filename: ${{ github.event.inputs.filename }}"
     
-    - name: List Files for debugging
-      run: tree
+    - name: List Files for debugging 
+      run: tree # This lists the files in the current directory for debugging
 
     - name: Locate my command tool file location for debugging
       run: |
-        which create_azstorage_cli
+        which create_azstorage_cli # This lists the files in the current directory for debugging
         
     - name: Run python command
       run: |
