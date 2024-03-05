@@ -4,5 +4,6 @@
         "titleBar.activeBackground": "#653125",
         "titleBar.activeForeground": "#FDF9F8"
     },
-    "terminal.integrated.env.windows": {}
+    "terminal.integrated.env.windows": {},
+    "team.showWelcomeMessage": false
 }
